@@ -10,8 +10,18 @@
 | contains the "web" middleware group. Now create something great!
 |
 */
-
 Route::get('/', function () {
+	
+	/* Consultando dados do banco
+	$sql = "select * from users where id = ?";
+	$users = \DB::select($sql, [4]);
+	$users = \DB::table('users')
+		->where('id', 4)
+		->select('id', 'name')
+		->get();
+	$users  = \App\User::all();
+	dd($users);
+	*/
     return view('welcome');
 });
 
