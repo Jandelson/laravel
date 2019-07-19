@@ -22,6 +22,28 @@ Route::get('/', function () {
 	$users  = \App\User::all();
 	dd($users);
 	*/
+	/*
+	$users  = \App\User::all()->find(31);
+	$users->name 		= "Jandelson Edited";
+	$users->email 		= "jandelson.oliveira@yahoo.com.br";
+	$users->password 	= bcrypt('123456');
+	$users->save();
+	*/
+
+	/*
+	$userData = [
+		'name' => 'NOVO EDITED',
+	];
+
+	$users  = \App\User::all()->find(31);
+	$users->update($userData);
+	*/
+
+	$users  = \App\User::find(28);
+	$users->delete();
+
+
+
     return view('welcome');
 });
 
