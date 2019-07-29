@@ -39,10 +39,9 @@ Route::get('/', function () {
 	$users->update($userData);
 	*/
 
-	$users  = \App\User::find(28);
+	//$users  = \App\User::find(25);
+	$users = \App\User::WhereIn('id', [23,24]);
 	$users->delete();
-
-
 
     return view('welcome');
 });
@@ -50,3 +49,9 @@ Route::get('/', function () {
 Route::get('/hello/{name}', function ($name) {
     return view('hello' ,['name' => $name]);
 });
+
+
+//Users
+Route::get('/users', 'UserController@index');
+Route::get('/users/{id}', 'UserController@show');
+//Route::post('/users', 'UserController@save');
