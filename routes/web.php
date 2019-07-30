@@ -52,6 +52,6 @@ Route::get('/hello/{name}', function ($name) {
 
 
 //Users
-Route::get('/users', 'UserController@index');
-Route::get('/users/{id}', 'UserController@show');
+Route::get('/users', 'Test\UserController@index');
+Route::get('/users/{id}', 'Test\UserController@show');
 //Route::post('/users', 'UserController@save');
