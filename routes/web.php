@@ -47,11 +47,23 @@ Route::get('/', function () {
 });
 
 Route::get('/hello/{name}', function ($name) {
-    return view('hello' ,['name' => $name]);
+    //return view('hello' ,['name' => $name]);
+    return redirect()->route('produtos_index');
 });
 
 
 //Users
-Route::get('/users', 'Test\UserController@index');
-Route::get('/users/{id}', 'Test\UserController@show');
+//Route::get('/users', 'Test\UserController@index');
+//Route::get('/users/{id}', 'Test\UserController@show');
 //Route::post('/users', 'UserController@save');
+//Route::resource('/users', 'Test\UserController');
+//Route::resource('/products', 'Test\ProductController');
+Route::prefix('products')->group(function() {
+	Route::get('/ok', function(){
+		return 'Produtos index';
+	})->name('produtos_index');
+
+	Route::get('/1', function(){
+		return 'Produtos 1';
+	})->name('produtos_s');
+});
