@@ -48,7 +48,7 @@ Route::get('/', function () {
 
 Route::get('/hello/{name}', function ($name) {
     //return view('hello' ,['name' => $name]);
-    return redirect()->route('produtos_index');
+    return redirect()->route('produtos_single');
 });
 
 
@@ -58,12 +58,24 @@ Route::get('/hello/{name}', function ($name) {
 //Route::post('/users', 'UserController@save');
 //Route::resource('/users', 'Test\UserController');
 //Route::resource('/products', 'Test\ProductController');
-Route::prefix('products')->group(function() {
+Route::namespace('Test')->group(function () {
+	Route::get('/users/{id}', 'UserController@show');
+	Route::get('/prod', 'ProductController@index');
+});
+
+Route::prefix('products')->name('products_')->group(function() {
+
 	Route::get('/ok', function(){
 		return 'Produtos index';
-	})->name('produtos_index');
+	})->name('index');
 
 	Route::get('/1', function(){
 		return 'Produtos 1';
-	})->name('produtos_s');
+	})->name('single');
+});
+
+Route::view('/view', 'view', ['name' => 'Jandelson']);
+
+Route::get('/show/{name?}/{sobre?}', function ($name = "Jandelson Oliveira", $sobre = 'ok') {
+    return view('view' ,['name' => $name, 'sobre' => $sobre]);
 });
