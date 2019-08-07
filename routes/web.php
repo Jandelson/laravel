@@ -47,8 +47,8 @@ Route::get('/', function () {
 });
 
 Route::get('/hello/{name}', function ($name) {
-    //return view('hello' ,['name' => $name]);
-    return redirect()->route('produtos_single');
+    return view('hello' ,['name' => $name]);
+    //return redirect()->route('produtos_single');
 });
 
 
