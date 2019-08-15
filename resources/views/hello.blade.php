@@ -22,6 +22,18 @@
     <div class="content">
     <div class="title m-b-md">
         Olá {{$name}}
+        <hr>
+        @if($name == 'Teste')
+            @include('includes/any')
+        @elseif($name == 'Jandelson')
+            <h1>{{$name}}</h1>
+        @else
+            <h1>Sem IF</h1>
+        @endif
+         <hr>
+         @isset($name)
+            <h2>Teste</h2>
+        @endisset
     </div>
     </div>
 @endsection

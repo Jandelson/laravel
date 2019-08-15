@@ -43,7 +43,13 @@ Route::get('/', function () {
 	$users = \App\User::WhereIn('id', [23,24]);
 	$users->delete();
 
-    return view('welcome');
+	$users = [
+		['name' => '1', 'email' => '1@jandelson.com.br'],
+		['name' => '2', 'email' => '2@jandelson.com.br'],
+		['name' => '3', 'email' => '3@jandelson.com.br']
+	];
+
+    return view('welcome', compact('users'));
 });
 
 Route::get('/hello/{name}', function ($name) {
