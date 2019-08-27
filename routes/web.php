@@ -80,7 +80,7 @@ Route::prefix('products')->name('products_')->group(function() {
 	})->name('single');
 });
 
-Route::view('/view', 'view', ['name' => 'Jandelson']);
+Route::view('/view', 'view', ['name' => 'Jandelson'])->middleware('teste');
 
 Route::get('/show/{name?}/{sobre?}', function ($name = "Jandelson Oliveira", $sobre = 'ok') {
     return view('view' ,['name' => $name, 'sobre' => $sobre]);
