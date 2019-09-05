@@ -1,1 +1,1 @@
-<h1>RouteView  - Nome: {{$name}} - {{$sobre}}</h1>
+<h1>RouteView  - Nome: {{$name}}</h1>
